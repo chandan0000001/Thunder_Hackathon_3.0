@@ -4,7 +4,8 @@
  * @module envCollector
  * @description Collects selected environment variables safely, returning "Not Available" for any missing values.
  *              Supports Linux, macOS, and Windows by collecting both the standard required variables
- *              and platform-specific alternatives.
+ *              and platform-specific alternatives
+ * Me insan nahii  HUMAN CHANDAN HU 
  */
 
 const os = require('os');

@@ -2,9 +2,7 @@
 
 /**
  * @module formatter
- * @description Formats collected data into pretty console output and saves a JSON report to output/.
- *              Uses incremental naming so each run preserves previous reports:
- *              report.json, report1.json, report2.json, ...
+ * @description ..
  */
 
 const fs = require('fs').promises;
@@ -16,7 +14,7 @@ const { getNextFilePath } = require('./fileManager');
 const OUTPUT_DIR = path.resolve(__dirname, '..', 'output');
 
 /**
- * Returns the next available report file path (report.json, report1.json, report2.json, ...).
+
  * @returns {Promise<string>} Absolute path for the next report file.
  */
 async function getNextReportPath() {
@@ -31,7 +29,7 @@ async function getNextReportPath() {
 function printBanner() {
   console.log('');
   console.log(chalk.cyan.bold('╔══════════════════════════════════════════════════════╗'));
-  console.log(chalk.cyan.bold('║') + chalk.white.bold('   ⚡ THUNDER HACKATHON 3.0 — System Info Collector  ') + chalk.cyan.bold('║'));
+  console.log(chalk.cyan.bold('║') + chalk.white.bold('    THUNDER HACKATHON 3.0 — System Info Collector  ') + chalk.cyan.bold('║'));
   console.log(chalk.cyan.bold('╚══════════════════════════════════════════════════════╝'));
   console.log('');
 }

@@ -3,9 +3,7 @@
 /**
  * @module fileManager
  * @description Sandboxed CRUD file operations restricted to the workspace/ directory.
- *              Never deletes arbitrary files — only operates on known demo files.
- *              Uses incremental naming so each run preserves previous files:
- *              sample.txt, sample1.txt, sample2.txt, ...
+ *             ..
  */
 
 const fs = require('fs').promises;

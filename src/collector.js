@@ -6,7 +6,7 @@
 
 /**
  * @module collector
- * @description Collects system information using Node.js built-in os and process modules.
+ * @description Collects system information using Node.js built-in os and process modules  
  */
 
 const os = require('os');

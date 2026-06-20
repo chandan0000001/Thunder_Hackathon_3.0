@@ -12,6 +12,7 @@
  *   4. Generate report
  *   5. Save report.json
  *   6. Print success message
+ *    7.Me insan nahii  HUMAN CHANDAN HU 
  */
 
 const { collectAllSystemInfo } = require('./collector');

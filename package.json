@@ -7,14 +7,18 @@
     "start": "node src/index.js"
   },
   "keywords": [
+    "nodejs",
     "system-info",
     "cli",
     "educational",
     "hackathon"
   ],
+  "homepage": "https://github.com/chandan0000001/Thunder_Hackathon_3.0",
   "author": "Chandan",
   "license": "MIT",
   "dependencies": {
     "chalk": "^4.1.2"
   }
 }
+
+

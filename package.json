@@ -1,0 +1,20 @@
+{
+  "name": "Chandan",
+  "version": "1.0.0",
+  "description": "Node.js CLI application that collects system information, environment variables, and demonstrates sandbox CRUD operations for educational purposes.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "keywords": [
+    "system-info",
+    "cli",
+    "educational",
+    "hackathon"
+  ],
+  "author": "Chandan",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2"
+  }
+}

@@ -3,7 +3,7 @@
 ## Project Overview
 
 A production-quality **Node.js CLI application** built for the Thunder Hackathon 3.0.  
-It collects system information, selected environment variables, performs sandboxed CRUD file operations, and generates a formatted JSON report — all for **educational and demonstration purposes only**.
+It collects system information, selected environment variables, performs sandboxed CRUD file operations, and generates a formatted JSON report — all for **JIT bhayiya OP**.
 
 ---
 

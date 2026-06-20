@@ -14,6 +14,7 @@ It collects system information, selected environment variables, performs sandbox
 | System Info Collection | OS name, release, CPU architecture, hostname, platform, uptime, EOL type |
 | Node.js Info | Node version, home directory, current working directory |
 | Memory Info | Total memory, free memory, used memory (in MB) |
+| Battery Info | Battery level (%), charging status, and battery health (cross-platform) |
 | Environment Variables | Required: USER, USERNAME, HOME, PATH + platform-specific vars for Windows/macOS/Linux |
 | Cross-Platform | Runs on **Linux**, **macOS**, and **Windows** with platform-adaptive env collection |
 | Sandbox CRUD | Create, Read, Update, Delete — restricted to `workspace/` only |
@@ -47,7 +48,7 @@ project-root/
 
 ### Module Responsibilities
 
-- **`collector.js`** — Uses Node.js `os` and `process` modules. Exposes `getOSInfo()`, `getCPUInfo()`, `getNodeInfo()`, `getMemoryInfo()`, and `collectAllSystemInfo()`.
+- **`collector.js`** — Uses Node.js `os`, `process`, and `fs` modules + `child_process` for battery. Exposes `getOSInfo()`, `getCPUInfo()`, `getNodeInfo()`, `getMemoryInfo()`, `getBatteryInfo()`, and `collectAllSystemInfo()`.
 - **`envCollector.js`** — Reads `process.env` for USER, USERNAME, HOME, PATH. Also collects **platform-specific** variables: USERPROFILE/COMPUTERNAME on Windows, SHELL/LOGNAME/TMPDIR on macOS, SHELL/DISPLAY/XDG_SESSION_TYPE on Linux. Returns `"Not Available"` for missing values.
 - **`fileManager.js`** — Async CRUD operations restricted to `workspace/`. `createFile()`, `readFile()`, `updateFile()`, `deleteDemoFile()` (only deletes `workspace/temp.txt`, never arbitrary files).
 - **`formatter.js`** — Builds the report object, prints colored sections to console, saves `output/report.json`.
@@ -171,6 +172,12 @@ npm start
       "totalMemoryMB": 16384.0,
       "freeMemoryMB": 8192.0,
       "usedMemoryMB": 8192.0
+    },
+    "battery": {
+      "batteryLevel": 78,
+      "batteryStatus": "Discharging",
+      "batteryHealth": "92.3%",
+      "isCharging": "No"
     }
   },
   "environment": {
@@ -196,7 +203,7 @@ npm start
     "delete": { "success": true, "file": "...", "message": "temp.txt deleted successfully." }
   },
   "summary": {
-    "totalSystemFields": 15,
+    "totalSystemFields": 19,
     "totalEnvVariables": 9,
     "platformDetected": "Linux",
     "crudOperationsCompleted": 5,
@@ -215,6 +222,7 @@ npm start
 | `env.required.USERNAME` | `"Not Available"` | `"Not Available"` | `"user"` |
 | `env.required.HOME` | `/home/user` | `/Users/user` | `"Not Available"` |
 | `env.platformSpecific` | SHELL, LANG, TERM, DISPLAY | SHELL, LOGNAME, TERM, LANG, TMPDIR | USERPROFILE, COMPUTERNAME, SYSTEMROOT, APPDATA |
+| `battery.source` | `/sys/class/power_supply/BAT*` | `pmset -g batt` | `WMIC Win32_Battery` |
 
 ---
 

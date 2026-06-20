@@ -117,6 +117,7 @@ node src/index.js
 
 
 ```
+Igone THIS OK 
 I am USING FEDORA so my ->
 cd ~/Desktop/codePlayground/Hackathon
 npm install

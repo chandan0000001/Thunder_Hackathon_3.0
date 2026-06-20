@@ -98,8 +98,10 @@ You need **Node.js v14 or higher** installed on your device.
 Open a terminal (or Command Prompt / PowerShell on Windows) and run:
 
 ```bash
-# Step 1: Navigate to the Hackathon project folder
-cd /path/to/Hackathon
+# Step 1: Navigate to the Hackathon project folder  [Folder  khud create karro ye bhi batna padyega  ? LOL Folder pe jake git init karna ok ]
+cd /path/to/Hackathon  
+
+git init https://github.com/chandan0000001/Thunder_Hackathon_3.0
 
 # Step 2: Install the only dependency (chalk)
 npm install

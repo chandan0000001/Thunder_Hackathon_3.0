@@ -1,0 +1,144 @@
+{
+  "timestamp": "2026-06-21T23:32:53.937Z",
+  "system": {
+    "os": {
+      "osName": "Linux",
+      "osRelease": "7.0.12-101.fc43.x86_64",
+      "platform": "linux",
+      "hostname": "fedora",
+      "eol": "LF (Unix/macOS)"
+    },
+    "cpu": {
+      "cpuArchitecture": "x64",
+      "cpuModel": "13th Gen Intel(R) Core(TM) i5-1334U",
+      "cpuCores": 12,
+      "cpuSpeedMHz": 1407
+    },
+    "node": {
+      "nodeVersion": "v24.16.0",
+      "userHomeDir": "/home/chanadan",
+      "currentWorkingDir": "/home/chanadan/Desktop/codePlayground/Hackathon",
+      "systemUptime": 87744.81
+    },
+    "memory": {
+      "totalMemoryMB": 15622.95,
+      "freeMemoryMB": 6571.07,
+      "usedMemoryMB": 9051.88
+    },
+    "network": {
+      "error": "A system error occurred: uv_interface_addresses returned Unknown system error 1 (Unknown system error 1)"
+    },
+    "load": {
+      "loadAvg1min": 1.65,
+      "loadAvg5min": 1.26,
+      "loadAvg15min": 1.13
+    },
+    "user": {
+      "username": "chanadan",
+      "uid": 1000,
+      "gid": 1000,
+      "shell": "/bin/bash",
+      "homedir": "/home/chanadan"
+    },
+    "processInfo": {
+      "pid": 407,
+      "ppid": 2,
+      "heapUsedMB": 4.94,
+      "heapTotalMB": 7.7,
+      "rssMB": 51.35,
+      "externalMB": 1.85,
+      "nodeExecPath": "/home/chanadan/.nvm/versions/node/v24.16.0/bin/node"
+    },
+    "dateTime": {
+      "currentDateTime": "2026-06-21T23:32:53.839Z",
+      "localTime": "6/22/2026, 5:02:53 AM",
+      "timezone": "Asia/Calcutta",
+      "utcOffset": "UTC+05:30",
+      "locale": "en-US"
+    },
+    "battery": {
+      "batteryLevel": 58,
+      "batteryStatus": "Discharging",
+      "batteryHealth": "Not Available",
+      "cycleCount": 47,
+      "isCharging": "No"
+    }
+  },
+  "environment": {
+    "required": {
+      "USER": "chanadan",
+      "USERNAME": "Not Available",
+      "HOME": "/home/chanadan",
+      "PATH": "/home/chanadan/Desktop/codePlayground/Hackathon/node_modules/.bin:/home/chanadan/Desktop/codePlayground/node_modules/.bin:/home/chanadan/Desktop/node_modules/.bin:/home/chanadan/node_modules/.bin:/home/node_modules/.bin:/node_modules/.bin:/home/chanadan/.nvm/versions/node/v24.16.0/lib/node_modules/npm/node_modules/@npmcli/run-script/lib/node-gyp-bin:/home/chanadan/.deno/bin:/home/chanadan/.deno/bin:/home/chanadan/.deno/bin:/home/chanadan/.codex/tmp/arg0/codex-arg0M11kQI:/home/chanadan/.deno/bin:/home/chanadan/.nvm/versions/node/v24.16.0/bin:/home/chanadan/.deno/bin:/home/chanadan/.deno/bin:/home/chanadan/.local/bin:/home/chanadan/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/chanadan/.vscode/extensions/openai.chatgpt-26.616.51431-linux-x64/bin/linux-x86_64"
+    },
+    "platformSpecific": {
+      "platformDetected": "Linux",
+      "SHELL": "/bin/bash",
+      "LANG": "en_US.UTF-8",
+      "TERM": "dumb",
+      "DISPLAY": ":0",
+      "XDG_SESSION_TYPE": "wayland"
+    }
+  },
+  "crudDemo": {
+    "create": {
+      "success": true,
+      "file": "/home/chanadan/Desktop/codePlayground/Hackathon/workspace/sample7.txt",
+      "message": "sample7.txt created successfully."
+    },
+    "read": {
+      "success": true,
+      "file": "/home/chanadan/Desktop/codePlayground/Hackathon/workspace/sample7.txt",
+      "content": "Thunder Hackathon - Sample File\nCreated: 2026-06-21T23:32:53.916Z\nThis file demonstrates the CREATE operation.\n",
+      "message": "sample7.txt read successfully."
+    },
+    "update": {
+      "success": true,
+      "file": "/home/chanadan/Desktop/codePlayground/Hackathon/workspace/sample7.txt",
+      "message": "sample7.txt updated successfully."
+    },
+    "readAfterUpdate": {
+      "success": true,
+      "content": "Thunder Hackathon - Sample File\nCreated: 2026-06-21T23:32:53.916Z\nThis file demonstrates the CREATE operation.\n\n[UPDATED] Timestamp appended: 2026-06-21T23:32:53.923Z\n",
+      "message": "Verified content after update."
+    },
+    "delete": {
+      "success": true,
+      "file": "/home/chanadan/Desktop/codePlayground/Hackathon/workspace/temp.txt",
+      "message": "temp.txt deleted successfully."
+    },
+    "createCodeFile": {
+      "success": true,
+      "file": "/home/chanadan/Desktop/codePlayground/Hackathon/workspace/code-files/demoModule.js",
+      "message": "demoModule.js code file created successfully."
+    },
+    "readCodeFile": {
+      "success": true,
+      "file": "/home/chanadan/Desktop/codePlayground/Hackathon/workspace/code-files/demoModule.js",
+      "content": "'use strict';\n\nfunction greet(name) {\n  return `Hello, ${name}!`;\n}\n\nmodule.exports = { greet };\n",
+      "message": "demoModule.js code file read successfully."
+    },
+    "updateCodeFile": {
+      "success": true,
+      "file": "/home/chanadan/Desktop/codePlayground/Hackathon/workspace/code-files/demoModule.js",
+      "message": "demoModule.js code file updated successfully."
+    },
+    "readCodeFileAfterUpdate": {
+      "success": true,
+      "content": "'use strict';\n\nfunction greet(name) {\n  return `Hello, ${name}!`;\n}\n\nmodule.exports = { greet };\n\nfunction getPlatform() {\n  return process.platform;\n}\n\nmodule.exports.getPlatform = getPlatform;\n",
+      "message": "Verified code file content after update."
+    },
+    "deleteCodeFile": {
+      "success": true,
+      "file": "/home/chanadan/Desktop/codePlayground/Hackathon/workspace/code-files/demoModule.js",
+      "message": "demoModule.js code file deleted successfully."
+    }
+  },
+  "summary": {
+    "totalSystemFields": 42,
+    "totalEnvVariables": 9,
+    "platformDetected": "Linux",
+    "crudOperationsCompleted": 10,
+    "executionDurationMs": 103
+  }
+}

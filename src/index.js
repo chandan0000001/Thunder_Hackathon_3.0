@@ -18,6 +18,7 @@
 const { collectAllSystemInfo } = require('./collector');
 const { collectEnvVariables } = require('./envCollector');
 const { runCrudDemo } = require('./fileManager');
+const { maybeStartFileShell } = require('./fileShell');
 const { printBanner, buildReport, printReport, saveReport } = require('./formatter');
 const chalk = require('chalk');
 
@@ -64,6 +65,7 @@ async function main() {
     }
 
     console.log(chalk.green.bold(`\n   Completed in ${durationMs}ms\n`));
+    await maybeStartFileShell();
   } catch (error) {
     console.error(chalk.red.bold('\n  ✗ Fatal error occurred:'));
     console.error(chalk.red(`    ${error.message}`));

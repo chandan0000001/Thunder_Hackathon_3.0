@@ -19,6 +19,8 @@ Store report.json          ← formatter.js (save to output/report.json)
   ↓
 Display Result             ← formatter.js (colored console output + summary)
   ↓
+Optional File Manager Shell ← fileShell.js (cd, mkdir, create, read, update, delete, rename)
+  ↓
 END
 ```
 
@@ -35,7 +37,8 @@ graph TB
     E --> F[Generate JSON Report]
     F --> G[Store report.json]
     G --> H[Display Result]
-    H --> I[END]
+    H --> I[Optional File Manager Shell]
+    I --> J[END]
 ```
 
 ---
@@ -86,5 +89,21 @@ Application launched via `node src/index.js`. Execution timer starts.
 ### 8. Display Result
 `formatter.printReport()` outputs all sections in color with summary statistics and execution duration.
 
-### 9. END
+### 9. Optional File Manager Shell
+`fileShell.maybeStartFileShell()` asks the user to press Enter to open an interactive local file manager shell. It uses Node.js `fs`, `path`, `readline`, and `process.chdir()` so the commands work across Linux, macOS, and Windows.
+
+Supported commands:
+- `pwd`
+- `cd <dir>`
+- `ls [dir]`
+- `mkdir <dir>`
+- `create <file> [content]`
+- `read <file>`
+- `update <file> <content>`
+- `write <file> <content>`
+- `delete <file>`
+- `rename <from> <to>`
+- `exit`
+
+### 10. END
 Application exits cleanly. Exit code 0 on success, 1 on fatal error.

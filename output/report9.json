@@ -1,0 +1,130 @@
+{
+  "timestamp": "2026-06-21T23:43:55.690Z",
+  "system": {
+    "os": {
+      "osName": "Linux",
+      "osRelease": "7.0.12-101.fc43.x86_64",
+      "platform": "linux",
+      "hostname": "fedora",
+      "eol": "LF (Unix/macOS)"
+    },
+    "cpu": {
+      "cpuArchitecture": "x64",
+      "cpuModel": "13th Gen Intel(R) Core(TM) i5-1334U",
+      "cpuCores": 12,
+      "cpuSpeedMHz": 480
+    },
+    "node": {
+      "nodeVersion": "v24.16.0",
+      "userHomeDir": "/home/chanadan",
+      "currentWorkingDir": "/home/chanadan/Desktop/codePlayground/Hackathon",
+      "systemUptime": 88406.6
+    },
+    "memory": {
+      "totalMemoryMB": 15622.95,
+      "freeMemoryMB": 6312.37,
+      "usedMemoryMB": 9310.58
+    },
+    "network": {
+      "lo": {
+        "ipv4": "127.0.0.1",
+        "ipv6": "::1",
+        "mac": "00:00:00:00:00:00",
+        "internal": "Yes"
+      },
+      "wlo1": {
+        "ipv4": "10.34.167.86",
+        "ipv6": "2409:4062:2212:fed8::173",
+        "mac": "46:f9:84:fc:aa:ed",
+        "internal": "No"
+      },
+      "totalAddresses": 6
+    },
+    "load": {
+      "loadAvg1min": 1.24,
+      "loadAvg5min": 1.56,
+      "loadAvg15min": 1.35
+    },
+    "user": {
+      "username": "chanadan",
+      "uid": 1000,
+      "gid": 1000,
+      "shell": "/bin/bash",
+      "homedir": "/home/chanadan"
+    },
+    "processInfo": {
+      "pid": 58017,
+      "ppid": 57684,
+      "heapUsedMB": 5.02,
+      "heapTotalMB": 7.7,
+      "rssMB": 51.61,
+      "externalMB": 1.87,
+      "nodeExecPath": "/home/chanadan/.nvm/versions/node/v24.16.0/bin/node"
+    },
+    "dateTime": {
+      "currentDateTime": "2026-06-21T23:43:55.630Z",
+      "localTime": "6/22/2026, 5:13:55 AM",
+      "timezone": "Asia/Calcutta",
+      "utcOffset": "UTC+05:30",
+      "locale": "en-US"
+    },
+    "battery": {
+      "batteryLevel": 52,
+      "batteryStatus": "Discharging",
+      "batteryHealth": "Not Available",
+      "cycleCount": 47,
+      "isCharging": "No"
+    }
+  },
+  "environment": {
+    "required": {
+      "USER": "chanadan",
+      "USERNAME": "Not Available",
+      "HOME": "/home/chanadan",
+      "PATH": "/home/chanadan/.deno/bin:/home/chanadan/.config/Code/User/globalStorage/github.copilot-chat/debugCommand:/home/chanadan/.config/Code/User/globalStorage/github.copilot-chat/copilotCli:/home/chanadan/.deno/bin:/home/chanadan/.nvm/versions/node/v24.16.0/bin:/home/chanadan/.deno/bin:/home/chanadan/.deno/bin:/home/chanadan/.local/bin:/home/chanadan/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin"
+    },
+    "platformSpecific": {
+      "platformDetected": "Linux",
+      "SHELL": "/bin/bash",
+      "LANG": "en_US.UTF-8",
+      "TERM": "xterm-256color",
+      "DISPLAY": ":0",
+      "XDG_SESSION_TYPE": "wayland"
+    }
+  },
+  "crudDemo": {
+    "create": {
+      "success": true,
+      "file": "/home/chanadan/Desktop/codePlayground/Hackathon/workspace/sample9.txt",
+      "message": "sample9.txt created successfully."
+    },
+    "read": {
+      "success": true,
+      "file": "/home/chanadan/Desktop/codePlayground/Hackathon/workspace/sample9.txt",
+      "content": "Thunder Hackathon - Sample File\nCreated: 2026-06-21T23:43:55.680Z\nThis file demonstrates the CREATE operation.\n",
+      "message": "sample9.txt read successfully."
+    },
+    "update": {
+      "success": true,
+      "file": "/home/chanadan/Desktop/codePlayground/Hackathon/workspace/sample9.txt",
+      "message": "sample9.txt updated successfully."
+    },
+    "readAfterUpdate": {
+      "success": true,
+      "content": "Thunder Hackathon - Sample File\nCreated: 2026-06-21T23:43:55.680Z\nThis file demonstrates the CREATE operation.\n\n[UPDATED] Timestamp appended: 2026-06-21T23:43:55.683Z\n",
+      "message": "Verified content after update."
+    },
+    "delete": {
+      "success": true,
+      "file": "/home/chanadan/Desktop/codePlayground/Hackathon/workspace/temp.txt",
+      "message": "temp.txt deleted successfully."
+    }
+  },
+  "summary": {
+    "totalSystemFields": 46,
+    "totalEnvVariables": 9,
+    "platformDetected": "Linux",
+    "crudOperationsCompleted": 5,
+    "executionDurationMs": 64
+  }
+}

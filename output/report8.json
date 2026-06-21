@@ -1,0 +1,118 @@
+{
+  "timestamp": "2026-06-21T23:41:49.841Z",
+  "system": {
+    "os": {
+      "osName": "Linux",
+      "osRelease": "7.0.12-101.fc43.x86_64",
+      "platform": "linux",
+      "hostname": "fedora",
+      "eol": "LF (Unix/macOS)"
+    },
+    "cpu": {
+      "cpuArchitecture": "x64",
+      "cpuModel": "13th Gen Intel(R) Core(TM) i5-1334U",
+      "cpuCores": 12,
+      "cpuSpeedMHz": 1952
+    },
+    "node": {
+      "nodeVersion": "v24.16.0",
+      "userHomeDir": "/home/chanadan",
+      "currentWorkingDir": "/home/chanadan/Desktop/codePlayground/Hackathon",
+      "systemUptime": 88280.76
+    },
+    "memory": {
+      "totalMemoryMB": 15622.95,
+      "freeMemoryMB": 6517.13,
+      "usedMemoryMB": 9105.82
+    },
+    "network": {
+      "error": "A system error occurred: uv_interface_addresses returned Unknown system error 1 (Unknown system error 1)"
+    },
+    "load": {
+      "loadAvg1min": 2.14,
+      "loadAvg5min": 1.7,
+      "loadAvg15min": 1.36
+    },
+    "user": {
+      "username": "chanadan",
+      "uid": 1000,
+      "gid": 1000,
+      "shell": "/bin/bash",
+      "homedir": "/home/chanadan"
+    },
+    "processInfo": {
+      "pid": 407,
+      "ppid": 2,
+      "heapUsedMB": 5.01,
+      "heapTotalMB": 7.2,
+      "rssMB": 51.81,
+      "externalMB": 1.87,
+      "nodeExecPath": "/home/chanadan/.nvm/versions/node/v24.16.0/bin/node"
+    },
+    "dateTime": {
+      "currentDateTime": "2026-06-21T23:41:49.783Z",
+      "localTime": "6/22/2026, 5:11:49 AM",
+      "timezone": "Asia/Calcutta",
+      "utcOffset": "UTC+05:30",
+      "locale": "en-US"
+    },
+    "battery": {
+      "batteryLevel": 53,
+      "batteryStatus": "Discharging",
+      "batteryHealth": "Not Available",
+      "cycleCount": 47,
+      "isCharging": "No"
+    }
+  },
+  "environment": {
+    "required": {
+      "USER": "chanadan",
+      "USERNAME": "Not Available",
+      "HOME": "/home/chanadan",
+      "PATH": "/home/chanadan/Desktop/codePlayground/Hackathon/node_modules/.bin:/home/chanadan/Desktop/codePlayground/node_modules/.bin:/home/chanadan/Desktop/node_modules/.bin:/home/chanadan/node_modules/.bin:/home/node_modules/.bin:/node_modules/.bin:/home/chanadan/.nvm/versions/node/v24.16.0/lib/node_modules/npm/node_modules/@npmcli/run-script/lib/node-gyp-bin:/home/chanadan/.deno/bin:/home/chanadan/.deno/bin:/home/chanadan/.deno/bin:/home/chanadan/.codex/tmp/arg0/codex-arg0M11kQI:/home/chanadan/.deno/bin:/home/chanadan/.nvm/versions/node/v24.16.0/bin:/home/chanadan/.deno/bin:/home/chanadan/.deno/bin:/home/chanadan/.local/bin:/home/chanadan/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/chanadan/.vscode/extensions/openai.chatgpt-26.616.51431-linux-x64/bin/linux-x86_64"
+    },
+    "platformSpecific": {
+      "platformDetected": "Linux",
+      "SHELL": "/bin/bash",
+      "LANG": "en_US.UTF-8",
+      "TERM": "dumb",
+      "DISPLAY": ":0",
+      "XDG_SESSION_TYPE": "wayland"
+    }
+  },
+  "crudDemo": {
+    "create": {
+      "success": true,
+      "file": "/home/chanadan/Desktop/codePlayground/Hackathon/workspace/sample8.txt",
+      "message": "sample8.txt created successfully."
+    },
+    "read": {
+      "success": true,
+      "file": "/home/chanadan/Desktop/codePlayground/Hackathon/workspace/sample8.txt",
+      "content": "Thunder Hackathon - Sample File\nCreated: 2026-06-21T23:41:49.833Z\nThis file demonstrates the CREATE operation.\n",
+      "message": "sample8.txt read successfully."
+    },
+    "update": {
+      "success": true,
+      "file": "/home/chanadan/Desktop/codePlayground/Hackathon/workspace/sample8.txt",
+      "message": "sample8.txt updated successfully."
+    },
+    "readAfterUpdate": {
+      "success": true,
+      "content": "Thunder Hackathon - Sample File\nCreated: 2026-06-21T23:41:49.833Z\nThis file demonstrates the CREATE operation.\n\n[UPDATED] Timestamp appended: 2026-06-21T23:41:49.837Z\n",
+      "message": "Verified content after update."
+    },
+    "delete": {
+      "success": true,
+      "file": "/home/chanadan/Desktop/codePlayground/Hackathon/workspace/temp.txt",
+      "message": "temp.txt deleted successfully."
+    }
+  },
+  "summary": {
+    "totalSystemFields": 42,
+    "totalEnvVariables": 9,
+    "platformDetected": "Linux",
+    "crudOperationsCompleted": 5,
+    "executionDurationMs": 61
+  }
+}

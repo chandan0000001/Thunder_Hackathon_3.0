@@ -22,7 +22,8 @@ It collects system information, selected environment variables, performs sandbox
 | Battery Info | Battery level (%), charging status, battery health, cycle count (cross-platform) |
 | Environment Variables | Required: USER, USERNAME, HOME, PATH + platform-specific vars for Windows/macOS/Linux |
 | Cross-Platform | Runs on **Linux**, **macOS**, and **Windows** with platform-adaptive collection |
-| Sandbox CRUD | Create, Read, Update, Delete — restricted to `workspace/` only |
+| Sandbox CRUD | Create, Read, Update, Delete demo inside `workspace/` |
+| Interactive File Manager Shell | Cross-platform shell commands using Node.js `fs` and `process.chdir()` for local file CRUD |
 | JSON Report | Pretty-printed `output/report.json` via `JSON.stringify(data, null, 2)` |
 | Colored Console | ANSI-colored output using `chalk` |
 | Execution Timing | Duration measurement from start to finish |
@@ -40,6 +41,7 @@ project-root/
 │   ├── collector.js       # System info: os, cpu, node, memory
 │   ├── envCollector.js    # Environment variables: USER, USERNAME, HOME, PATH
 │   ├── fileManager.js     # Sandboxed CRUD: create, read, update, delete
+│   ├── fileShell.js       # Interactive local file CRUD shell
 │   ├── formatter.js       # Report builder, colored printer, JSON saver
 │   └── index.js           # Main controller — orchestrates all modules
 ├── workspace/
@@ -55,7 +57,8 @@ project-root/
 
 - **`collector.js`** — Uses Node.js `os`, `process`, `fs`, and `child_process` modules. Exposes `getOSInfo()`, `getCPUInfo()`, `getNodeInfo()`, `getMemoryInfo()`, `getNetworkInfo()`, `getLoadInfo()`, `getUserInfo()`, `getProcessInfo()`, `getDateTimeInfo()`, `getBatteryInfo()`, and `collectAllSystemInfo()`. All collectors are **100% cross-platform** (Linux/macOS/Windows) using pure Node.js built-in APIs.
 - **`envCollector.js`** — Reads `process.env` for USER, USERNAME, HOME, PATH. Also collects **platform-specific** variables: USERPROFILE/COMPUTERNAME on Windows, SHELL/LOGNAME/TMPDIR on macOS, SHELL/DISPLAY/XDG_SESSION_TYPE on Linux. Returns `"Not Available"` for missing values.
-- **`fileManager.js`** — Async CRUD operations restricted to `workspace/`. `createFile()`, `readFile()`, `updateFile()`, `deleteDemoFile()` (only deletes `workspace/temp.txt`, never arbitrary files).
+- **`fileManager.js`** — Async CRUD demo operations inside `workspace/`. `createFile()`, `readFile()`, `updateFile()`, `deleteDemoFile()`.
+- **`fileShell.js`** — Interactive cross-platform file manager shell using Node.js `fs`, `path`, `readline`, and `process.chdir()`. Supports `pwd`, `cd`, `ls`, `mkdir`, `create`, `read`, `update`, `write`, `delete`, and `rename` for local files.
 - **`formatter.js`** — Builds the report object, prints colored sections to console, saves `output/report.json`.
 - **`index.js`** — Main entry point. Sequentially calls all modules, measures execution time, handles fatal errors.
 
@@ -79,6 +82,8 @@ Print CLI Banner
 [5/5] Save output/report.json
   ↓
 Print Report + Summary to Console
+  ↓
+Optional File Manager Shell (fileShell.js)
   ↓
 END
 ```
@@ -134,6 +139,24 @@ Or via npm script:
 
 ```bash
 npm start
+```
+
+After the report is printed, press **Enter** to open the File Manager Shell or type `n` to exit.
+
+File Manager Shell commands:
+
+```bash
+pwd
+cd <dir>
+ls [dir]
+mkdir <dir>
+create <file> [content]
+read <file>
+update <file> <content>
+write <file> <content>
+delete <file>
+rename <from> <to>
+exit
 ```
 
 ### Platform-specific notes:
@@ -267,8 +290,8 @@ npm start
 - **No data transmission** — All information stays on the local machine. Nothing is sent over the network.
 - **No malware functionality** — No persistence, no privilege escalation, no data exfiltration.
 - **Educational project only** — Built to demonstrate Node.js system APIs and modular CLI design.
-- **CRUD restricted to `workspace/`** — File operations are sandboxed. `deleteDemoFile()` only removes `workspace/temp.txt`. Arbitrary file deletion is never performed.
-- **No arbitrary file deletion** — The application never accepts user-supplied paths for deletion.
+- **Sandbox CRUD demo** — The automatic CRUD demo uses `workspace/` and `deleteDemoFile()` only removes `workspace/temp.txt`.
+- **Interactive local file CRUD** — The File Manager Shell can create, read, update, overwrite, delete, and rename local files using user-entered paths. Delete and overwrite actions ask for confirmation and still depend on normal operating-system permissions.
 
 ---
 

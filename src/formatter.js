@@ -64,10 +64,26 @@ function printKeyValue(key, value) {
 function printObject(title, data) {
   printSection(title);
   for (const [key, value] of Object.entries(data)) {
-    if (typeof value === 'object' && value !== null) {
+    if (Array.isArray(value)) {
+      // Handle arrays: print count and first few items
+      printKeyValue(key, `${value.length} item(s)`);
+      const preview = value.slice(0, 4);
+      for (let i = 0; i < preview.length; i++) {
+        const item = preview[i];
+        const itemStr = typeof item === 'object' ? JSON.stringify(item) : String(item);
+        console.log(`    ${chalk.dim('-')} [${i}] ${chalk.white(itemStr)}`);
+      }
+      if (value.length > 4) {
+        console.log(`    ${chalk.dim(`... and ${value.length - 4} more`)}`);
+      }
+    } else if (typeof value === 'object' && value !== null) {
       printKeyValue(key, '');
       for (const [subKey, subValue] of Object.entries(value)) {
-        console.log(`    ${chalk.dim('-')} ${chalk.green(subKey)}: ${chalk.white(String(subValue))}`);
+        if (typeof subValue === 'object' && subValue !== null) {
+          console.log(`    ${chalk.dim('-')} ${chalk.green(subKey)}: ${chalk.white(JSON.stringify(subValue))}`);
+        } else {
+          console.log(`    ${chalk.dim('-')} ${chalk.green(subKey)}: ${chalk.white(String(subValue))}`);
+        }
       }
     } else {
       printKeyValue(key, value);

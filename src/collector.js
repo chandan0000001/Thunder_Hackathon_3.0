@@ -49,12 +49,14 @@ function getCPUInfo() {
       cpuArchitecture: os.arch(),
       cpuModel: cpus.length > 0 ? cpus[0].model : 'Not Available',
       cpuCores: cpus.length,
+      cpuSpeedMHz: cpus.length > 0 ? cpus[0].speed : 'Not Available',
     };
   } catch (error) {
     return {
       cpuArchitecture: 'Not Available',
       cpuModel: 'Not Available',
       cpuCores: 0,
+      cpuSpeedMHz: 'Not Available',
       error: error.message,
     };
   }
@@ -101,6 +103,144 @@ function getMemoryInfo() {
       totalMemoryMB: 0,
       freeMemoryMB: 0,
       usedMemoryMB: 0,
+      error: error.message,
+    };
+  }
+}
+
+/**
+ * Retrieves network interface information — IPs, MAC addresses, internal/external.
+ * @returns {object[]} Array of interface objects with name, family, address, mac, internal.
+ */
+function getNetworkInfo() {
+  try {
+    const interfaces = os.networkInterfaces();
+    const result = {};
+    let totalCount = 0;
+    for (const [name, addrs] of Object.entries(interfaces)) {
+      const ipv4 = addrs.find((a) => a.family === 'IPv4');
+      const ipv6 = addrs.find((a) => a.family === 'IPv6' && !a.scopeid);
+      result[name] = {
+        ipv4: ipv4 ? ipv4.address : 'None',
+        ipv6: ipv6 ? ipv6.address : 'None',
+        mac: ipv4 ? ipv4.mac : (ipv6 ? ipv6.mac : 'Not Available'),
+        internal: (ipv4 || ipv6)?.internal ? 'Yes' : 'No',
+      };
+      totalCount += addrs.length;
+    }
+    result.totalAddresses = totalCount;
+    return result;
+  } catch (error) {
+    return { error: error.message };
+  }
+}
+
+/**
+ * Retrieves system load average (1min, 5min, 15min).
+ * @returns {{ loadAvg1min: number, loadAvg5min: number, loadAvg15min: number }}
+ */
+function getLoadInfo() {
+  try {
+    const loadAvg = os.loadavg();
+    return {
+      loadAvg1min: parseFloat(loadAvg[0].toFixed(2)),
+      loadAvg5min: parseFloat(loadAvg[1].toFixed(2)),
+      loadAvg15min: parseFloat(loadAvg[2].toFixed(2)),
+    };
+  } catch (error) {
+    return {
+      loadAvg1min: 0,
+      loadAvg5min: 0,
+      loadAvg15min: 0,
+      error: error.message,
+    };
+  }
+}
+
+/**
+ * Retrieves current OS user information.
+ * @returns {{ username: string, uid: number, gid: number, shell: string, homedir: string }}
+ */
+function getUserInfo() {
+  try {
+    const info = os.userInfo();
+    return {
+      username: info.username,
+      uid: info.uid,
+      gid: info.gid,
+      shell: info.shell || 'Not Available',
+      homedir: info.homedir,
+    };
+  } catch (error) {
+    return {
+      username: 'Not Available',
+      uid: 'Not Available',
+      gid: 'Not Available',
+      shell: 'Not Available',
+      homedir: 'Not Available',
+      error: error.message,
+    };
+  }
+}
+
+/**
+ * Retrieves current Node.js process information — PID, memory usage.
+ * @returns {object} Process details including PID and heap memory stats.
+ */
+function getProcessInfo() {
+  try {
+    const mem = process.memoryUsage();
+    return {
+      pid: process.pid,
+      ppid: process.ppid,
+      heapUsedMB: parseFloat((mem.heapUsed / (1024 * 1024)).toFixed(2)),
+      heapTotalMB: parseFloat((mem.heapTotal / (1024 * 1024)).toFixed(2)),
+      rssMB: parseFloat((mem.rss / (1024 * 1024)).toFixed(2)),
+      externalMB: parseFloat((mem.external / (1024 * 1024)).toFixed(2)),
+      nodeExecPath: process.execPath,
+    };
+  } catch (error) {
+    return {
+      pid: 'Not Available',
+      ppid: 'Not Available',
+      heapUsedMB: 0,
+      heapTotalMB: 0,
+      rssMB: 0,
+      externalMB: 0,
+      nodeExecPath: 'Not Available',
+      error: error.message,
+    };
+  }
+}
+
+/**
+ * Retrieves current date, time, timezone name, and UTC offset.
+ * @returns {object} Date and timezone information.
+ */
+function getDateTimeInfo() {
+  try {
+    const now = new Date();
+    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const utcOffset = -now.getTimezoneOffset();
+    const offsetHours = Math.floor(Math.abs(utcOffset) / 60);
+    const offsetMins = Math.abs(utcOffset) % 60;
+    const sign = utcOffset >= 0 ? '+' : '-';
+    const offsetString = `UTC${sign}${String(offsetHours).padStart(2, '0')}:${String(offsetMins).padStart(2, '0')}`;
+
+    return {
+      currentDateTime: now.toISOString(),
+      localTime: now.toLocaleString(),
+      timezone,
+      utcOffset: offsetString,
+      locale: Intl.DateTimeFormat().resolvedOptions().locale,
+    };
+  } catch (error) {
+    return {
+      currentDateTime: new Date().toISOString(),
+      localTime: 'Not Available',
+      timezone: 'Not Available',
+      utcOffset: 'Not Available',
+      locale: 'Not Available',
       error: error.message,
     };
   }
@@ -375,6 +515,11 @@ function collectAllSystemInfo() {
     cpu: getCPUInfo(),
     node: getNodeInfo(),
     memory: getMemoryInfo(),
+    network: getNetworkInfo(),
+    load: getLoadInfo(),
+    user: getUserInfo(),
+    processInfo: getProcessInfo(),
+    dateTime: getDateTimeInfo(),
     battery: getBatteryInfo(),
   };
 }
@@ -384,6 +529,11 @@ module.exports = {
   getCPUInfo,
   getNodeInfo,
   getMemoryInfo,
+  getNetworkInfo,
+  getLoadInfo,
+  getUserInfo,
+  getProcessInfo,
+  getDateTimeInfo,
   getBatteryInfo,
   collectAllSystemInfo,
 };

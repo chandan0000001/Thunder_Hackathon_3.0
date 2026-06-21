@@ -1,0 +1,130 @@
+{
+  "timestamp": "2026-06-21T03:44:15.589Z",
+  "system": {
+    "os": {
+      "osName": "Linux",
+      "osRelease": "7.0.12-101.fc43.x86_64",
+      "platform": "linux",
+      "hostname": "fedora",
+      "eol": "LF (Unix/macOS)"
+    },
+    "cpu": {
+      "cpuArchitecture": "x64",
+      "cpuModel": "13th Gen Intel(R) Core(TM) i5-1334U",
+      "cpuCores": 12,
+      "cpuSpeedMHz": 3769
+    },
+    "node": {
+      "nodeVersion": "v24.16.0",
+      "userHomeDir": "/home/chanadan",
+      "currentWorkingDir": "/home/chanadan/Desktop/codePlayground/Hackathon",
+      "systemUptime": 16426.51
+    },
+    "memory": {
+      "totalMemoryMB": 15622.95,
+      "freeMemoryMB": 7496.65,
+      "usedMemoryMB": 8126.3
+    },
+    "network": {
+      "lo": {
+        "ipv4": "127.0.0.1",
+        "ipv6": "::1",
+        "mac": "00:00:00:00:00:00",
+        "internal": "Yes"
+      },
+      "wlo1": {
+        "ipv4": "10.34.167.86",
+        "ipv6": "2409:4062:2212:fed8::173",
+        "mac": "46:f9:84:fc:aa:ed",
+        "internal": "No"
+      },
+      "totalAddresses": 6
+    },
+    "load": {
+      "loadAvg1min": 2.12,
+      "loadAvg5min": 1.84,
+      "loadAvg15min": 1.27
+    },
+    "user": {
+      "username": "chanadan",
+      "uid": 1000,
+      "gid": 1000,
+      "shell": "/bin/bash",
+      "homedir": "/home/chanadan"
+    },
+    "processInfo": {
+      "pid": 9030,
+      "ppid": 8295,
+      "heapUsedMB": 4.9,
+      "heapTotalMB": 7.45,
+      "rssMB": 51.56,
+      "externalMB": 1.85,
+      "nodeExecPath": "/home/chanadan/.nvm/versions/node/v24.16.0/bin/node"
+    },
+    "dateTime": {
+      "currentDateTime": "2026-06-21T03:44:15.540Z",
+      "localTime": "6/21/2026, 9:14:15 AM",
+      "timezone": "Asia/Calcutta",
+      "utcOffset": "UTC+05:30",
+      "locale": "en-US"
+    },
+    "battery": {
+      "batteryLevel": 90,
+      "batteryStatus": "Discharging",
+      "batteryHealth": "Not Available",
+      "cycleCount": 46,
+      "isCharging": "No"
+    }
+  },
+  "environment": {
+    "required": {
+      "USER": "chanadan",
+      "USERNAME": "Not Available",
+      "HOME": "/home/chanadan",
+      "PATH": "/home/chanadan/.deno/bin:/home/chanadan/.deno/bin:/home/chanadan/.nvm/versions/node/v24.16.0/bin:/home/chanadan/.deno/bin:/home/chanadan/.deno/bin:/home/chanadan/.local/bin:/home/chanadan/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin"
+    },
+    "platformSpecific": {
+      "platformDetected": "Linux",
+      "SHELL": "/bin/bash",
+      "LANG": "en_US.UTF-8",
+      "TERM": "xterm-256color",
+      "DISPLAY": ":0",
+      "XDG_SESSION_TYPE": "wayland"
+    }
+  },
+  "crudDemo": {
+    "create": {
+      "success": true,
+      "file": "/home/chanadan/Desktop/codePlayground/Hackathon/workspace/sample5.txt",
+      "message": "sample5.txt created successfully."
+    },
+    "read": {
+      "success": true,
+      "file": "/home/chanadan/Desktop/codePlayground/Hackathon/workspace/sample5.txt",
+      "content": "Thunder Hackathon - Sample File\nCreated: 2026-06-21T03:44:15.585Z\nThis file demonstrates the CREATE operation.\n",
+      "message": "sample5.txt read successfully."
+    },
+    "update": {
+      "success": true,
+      "file": "/home/chanadan/Desktop/codePlayground/Hackathon/workspace/sample5.txt",
+      "message": "sample5.txt updated successfully."
+    },
+    "readAfterUpdate": {
+      "success": true,
+      "content": "Thunder Hackathon - Sample File\nCreated: 2026-06-21T03:44:15.585Z\nThis file demonstrates the CREATE operation.\n\n[UPDATED] Timestamp appended: 2026-06-21T03:44:15.587Z\n",
+      "message": "Verified content after update."
+    },
+    "delete": {
+      "success": true,
+      "file": "/home/chanadan/Desktop/codePlayground/Hackathon/workspace/temp.txt",
+      "message": "temp.txt deleted successfully."
+    }
+  },
+  "summary": {
+    "totalSystemFields": 46,
+    "totalEnvVariables": 9,
+    "platformDetected": "Linux",
+    "crudOperationsCompleted": 5,
+    "executionDurationMs": 51
+  }
+}
